@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FineCSS Shop</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/finecss/css/finecss.css">
+</head>
+<body class="fc-typography">
+  <header class="fc-navbar fc-navbar--light">
+    <a class="fc-navbar__brand" href="#">FineShop</a>
+    <div class="fc-navbar__nav">
+      <a class="fc-navbar__link" href="#products">Products</a>
+      <a class="fc-navbar__link" href="#services">Services</a>
+      <a class="fc-navbar__link" href="#categories">Categories</a>
+      <button class="fc-btn fc-btn--outline" data-fc-toggle="dropdown" data-fc-target="#shopCart">Cart</button>
+      <div id="shopCart" data-fc="dropdown">
+        <div data-fc-menu role="menu">
+          <a href="#" role="menuitem">View cart</a>
+          <a href="#" role="menuitem">Checkout</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="fc-container fc-typography">
+    <section class="fc-hero fc-card fc-card--primary fc-row">
+      <div class="fc-col">
+        <h1 class="fc-display-4">Shop the essentials</h1>
+        <p class="fc-lead">Curated hardware and accessories built for agile teams with guaranteed delivery.</p>
+        <div class="fc-row fc-g-3">
+          <button class="fc-btn fc-btn--primary">Start shopping</button>
+          <button class="fc-btn fc-btn--outline">Browse catalog</button>
+        </div>
+      </div>
+      <div class="fc-col">
+        <p><strong>Today’s deal:</strong> Wireless headset + docking station bundle.</p>
+        <div class="fc-progress">
+          <div class="fc-progress__bar fc-progress__bar--success" style="width: 76%"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="docs-card">
+      <div class="fc-row fc-justify-between fc-align-center">
+        <div>
+          <h2 class="fc-heading fc-heading--h3">Reliable delivery</h2>
+          <p class="fc-text-muted">Global logistics synced with carrier partners and real-time tracking.</p>
+        </div>
+        <div class="fc-row fc-g-3">
+          <div class="fc-card fc-card--success">
+            <p class="fc-fw-bold">24 / 7</p>
+            <p class="fc-text-muted">Support coverage</p>
+          </div>
+          <div class="fc-card fc-card--primary">
+            <p class="fc-fw-bold">Next day</p>
+            <p class="fc-text-muted">In-city delivery</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="docs-card">
+      <h2 class="fc-heading fc-heading--h3">Products</h2>
+      <div class="fc-row fc-g-3">
+        <article class="fc-card fc-card--outline">
+          <img class="fc-img fc-img--rounded" src="https://placehold.co/600x400/000000/ffffff?text=Monitor" alt="Smart Monitor">
+          <h3 class="fc-card__header">Smart Monitor</h3>
+          <p>4K display with built-in collaboration camera.</p>
+          <p class="fc-lead">$399</p>
+        </article>
+        <article class="fc-card fc-card--info">
+          <img class="fc-img fc-img--rounded" src="https://placehold.co/600x400/0284c7/ffffff?text=Keyboard" alt="Pro Keyboard">
+          <h3 class="fc-card__header">Pro Keyboard</h3>
+          <p>Mechanical keys, low travel, wireless pairing.</p>
+          <p class="fc-lead">$119</p>
+        </article>
+        <article class="fc-card fc-card--warning">
+          <img class="fc-img fc-img--rounded" src="https://placehold.co/600x400/ef4444/ffffff?text=Headset" alt="Noise-Cancel Headset">
+          <h3 class="fc-card__header">Noise-Cancel Headset</h3>
+          <p>Less than 60ms latency, USB-C + analog.</p>
+          <p class="fc-lead">$189</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="services" class="docs-card">
+      <h2 class="fc-heading fc-heading--h3">Services</h2>
+      <div class="fc-row fc-g-4">
+        <div class="fc-card fc-card--success">
+          <h3 class="fc-card__header">Express shipping</h3>
+          <p>Next-day delivery across 70 cities.</p>
+        </div>
+        <div class="fc-card fc-card--danger">
+          <h3 class="fc-card__header">Warranty + support</h3>
+          <p>3-year coverage with live chat.</p>
+        </div>
+        <div class="fc-card fc-card--primary">
+          <h3 class="fc-card__header">On-site setups</h3>
+          <p>Installation crews in under 48 hours.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories" class="docs-card">
+      <h2 class="fc-heading fc-heading--h3">Categories</h2>
+      <div class="fc-list-group fc-g-2 fc-row">
+        <div class="fc-col">
+          <ul class="fc-list-group fc-list-group--primary">
+            <li class="fc-list-group__item">Workstations</li>
+            <li class="fc-list-group__item">Peripherals</li>
+          </ul>
+        </div>
+        <div class="fc-col">
+          <ul class="fc-list-group fc-list-group--success">
+            <li class="fc-list-group__item">Accessories</li>
+            <li class="fc-list-group__item">Collaborate</li>
+          </ul>
+        </div>
+        <div class="fc-col">
+          <ul class="fc-list-group fc-list-group--info">
+            <li class="fc-list-group__item">Focus & audio</li>
+            <li class="fc-list-group__item">Security</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <section class="docs-card">
+      <h2 class="fc-heading fc-heading--h3">Why choose FineShop</h2>
+      <div class="fc-row fc-g-3">
+        <div class="fc-card fc-card--outline">
+          <p class="fc-fw-bold">Inventory transparency</p>
+          <p>Live stock sync and automated replenishment warnings.</p>
+        </div>
+        <div class="fc-card fc-card--success">
+          <p class="fc-fw-bold">Custom bundles</p>
+          <p>Build kits with matched warranties and support.</p>
+        </div>
+        <div class="fc-card fc-card--warning">
+          <p class="fc-fw-bold">Flexible financing</p>
+          <p>60/90 day terms and global leasing partners.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="fc-card fc-navbar--dark">
+    <div class="fc-row fc-g-4">
+      <div class="fc-col">
+        <p>&copy; FineShop 2025</p>
+      </div>
+      <div class="fc-col">
+        <p>Need help? email support@fineshop.example</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/finecss/js/finecss.js"></script>
+  <script>FineCSS.init();</script>
+</body>
+</html>

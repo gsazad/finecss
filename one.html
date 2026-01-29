@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FineCSS Hosting</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/finecss/css/finecss.css">
+</head>
+<body class="fc-typography">
+  <header class="fc-navbar fc-navbar--light fc-shadow-sm">
+    <a class="fc-navbar__brand" href="#">FineHost</a>
+    <div class="fc-navbar__nav">
+      <a class="fc-navbar__link" href="#services">Services</a>
+      <a class="fc-navbar__link" href="#pricing">Pricing</a>
+      <a class="fc-navbar__link" href="#contact">Contact</a>
+      <button class="fc-btn fc-btn--primary" data-fc-toggle="dropdown" data-fc-target="#navDropdown">Account</button>
+      <div id="navDropdown" data-fc="dropdown">
+        <div data-fc-menu role="menu">
+          <a href="#" role="menuitem">Login</a>
+          <a href="#" role="menuitem">Sign up</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="fc-container fc-typography">
+    <section class="fc-hero fc-card fc-card--primary fc-row">
+      <div class="fc-col fc-card__body">
+        <h1 class="fc-display-4">Enterprise hosting without the guesswork</h1>
+        <p class="fc-lead">FineHost delivers supercharged performance, predictable pricing, and built-in compliance around the world.</p>
+        <div class="fc-row fc-g-3">
+          <button class="fc-btn fc-btn--outline">Explore</button>
+          <button class="fc-btn fc-btn--primary">Get started</button>
+        </div>
+      </div>
+      <div class="fc-col">
+        <div class="fc-card">
+          <p class="fc-fw-bold">99.99% uptime</p>
+          <p>Global edge nodes with automatic failover.</p>
+          <div class="fc-progress">
+            <div class="fc-progress__bar" style="width: 99%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="docs-card">
+      <div class="fc-row fc-g-4">
+        <div class="fc-col">
+          <div class="fc-card fc-card--outline">
+            <p class="fc-fw-bold">Latency</p>
+            <p class="fc-lead">4ms global average</p>
+          </div>
+        </div>
+        <div class="fc-col">
+          <div class="fc-card fc-card--success">
+            <p class="fc-fw-bold">Compliance</p>
+            <p class="fc-text-muted">PCI, SOC2, HIPAA-ready</p>
+          </div>
+        </div>
+        <div class="fc-col">
+          <div class="fc-card fc-card--warning">
+            <p class="fc-fw-bold">Support</p>
+            <p class="fc-text-muted">Response in 3 mins</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="docs-card">
+      <h2 class="fc-heading fc-heading--h3">Services</h2>
+      <div class="fc-row fc-g-4">
+        <article class="fc-card fc-card--success">
+          <h3 class="fc-card__header">Managed Cloud</h3>
+          <p>Autoscaling clusters, Kubernetes control plane, and continuous backups.</p>
+        </article>
+        <article class="fc-card fc-card--warning">
+          <h3 class="fc-card__header">Dedicated Instances</h3>
+          <p>Secure bare metal with guaranteed cores and isolated network.</p>
+        </article>
+        <article class="fc-card fc-card--info">
+          <h3 class="fc-card__header">Compliance Suite</h3>
+          <p>Built-in audit trails, monitoring, and SOC 2 ready templates.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="docs-card">
+      <h2 class="fc-heading fc-heading--h3">Customer stories</h2>
+      <div class="fc-row fc-g-3">
+        <article class="fc-card fc-card--info">
+          <p class="fc-fw-bold">“Migrated 3 data centers in 2 months.”</p>
+          <p>“FineHost’s automation handled the cutover and the team stayed informed the entire time.”</p>
+        </article>
+        <article class="fc-card">
+          <p class="fc-fw-bold">“Compliance reporting in minutes.”</p>
+          <p>“Built-in logging saved us days of manual work during our SOC2 audit.”</p>
+        </article>
+        <article class="fc-card fc-card--success">
+          <p class="fc-fw-bold">“24/7 support kept us online.”</p>
+          <p>“Engineers pushed patches overnight, and we saw zero downtime.”</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="pricing" class="docs-card">
+      <h2 class="fc-heading fc-heading--h3">Pricing</h2>
+      <div class="fc-row fc-g-3">
+        <div class="fc-card">
+          <h3 class="fc-card__header">Starter</h3>
+          <p class="fc-lead">$29/month</p>
+          <ul class="fc-list-group">
+            <li class="fc-list-group__item">50 GB storage</li>
+            <li class="fc-list-group__item">Shared support</li>
+          </ul>
+        </div>
+        <div class="fc-card fc-card--primary">
+          <h3 class="fc-card__header">Scale</h3>
+          <p class="fc-lead">$99/month</p>
+          <ul class="fc-list-group fc-list-group--success">
+            <li class="fc-list-group__item">2 TB storage</li>
+            <li class="fc-list-group__item">24/7 support</li>
+            <li class="fc-list-group__item">Premium SLA</li>
+          </ul>
+        </div>
+        <div class="fc-card">
+          <h3 class="fc-card__header">Enterprise</h3>
+          <p class="fc-lead">Custom</p>
+          <p>Dedicated architect, compliance reviews, team training.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="docs-card">
+      <h2 class="fc-heading fc-heading--h3">Contact</h2>
+      <div class="fc-row fc-g-3">
+        <div class="fc-col">
+          <p><strong>Email:</strong> support@finehost.example</p>
+          <p><strong>Phone:</strong> +1 (800) 555-0142</p>
+        </div>
+        <div class="fc-col">
+          <form class="fc-form-group">
+            <label class="fc-form-label">Name</label>
+            <input class="fc-form-control" type="text" placeholder="Your name">
+            <label class="fc-form-label">Message</label>
+            <textarea class="fc-form-control" rows="3" placeholder="How can we help?"></textarea>
+            <button class="fc-btn fc-btn--primary" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="fc-card fc-navbar--dark">
+    <p>&copy; FineHost 2025 | Built with FineCSS.</p>
+  </footer>
+
+  <script src="/finecss/js/finecss.js"></script>
+  <script>FineCSS.init();</script>
+</body>
+</html>

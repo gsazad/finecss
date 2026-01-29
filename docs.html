@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FineCSS Documentation</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/finecss/css/finecss.css">
+  <style>
+    body {
+      background: var(--fc-color-body);
+    }
+    .docs-shell {
+      padding-top: 5rem;
+      margin-bottom: var(--fc-space-8);
+    }
+    .docs-card {
+      background: var(--fc-color-panel);
+      border: 1px solid var(--fc-color-border);
+      border-radius: var(--fc-radius-lg);
+      padding: var(--fc-space-4);
+      box-shadow: var(--fc-shadow-sm);
+      margin-bottom: var(--fc-space-4);
+    }
+    .docs-nav {
+      position: sticky;
+      top: 0;
+      z-index: var(--fc-z-navbar);
+      background: var(--fc-color-panel);
+    }
+    .docs-grid-demo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--fc-space-3);
+    }
+    .docs-code {
+      max-height: 22rem;
+      overflow: auto;
+      background: rgba(15, 23, 42, 0.02);
+      border-radius: var(--fc-radius-md);
+      padding: var(--fc-space-3);
+      margin-top: var(--fc-space-2);
+    }
+    pre {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body class="fc-typography">
+  <nav class="fc-navbar docs-nav">
+    <div class="fc-navbar__brand">FineCSS</div>
+    <div class="fc-navbar__nav" role="navigation" aria-label="Documentation navigation">
+      <a class="fc-navbar__link" href="#introduction">Intro</a>
+      <a class="fc-navbar__link" href="#layout">Layout</a>
+      <a class="fc-navbar__link" href="#typography">Typography</a>
+      <a class="fc-navbar__link" href="#utilities">Colors & Utilities</a>
+      <a class="fc-navbar__link" href="#tables">Tables & Images</a>
+      <a class="fc-navbar__link" href="#components">Core Components</a>
+      <a class="fc-navbar__link" href="#interactive">Interactive JS</a>
+      <a class="fc-navbar__link" href="#accessibility">Accessibility</a>
+      <a class="fc-navbar__link" href="#reference">Utilities</a>
+    </div>
+  </nav>
+
+  <main class="docs-shell fc-container">
+    <section id="introduction" class="docs-card">
+      <h1 class="fc-heading fc-heading--h2">Introduction</h1>
+      <p>FineCSS is a lightweight, component-based toolkit optimized for enterprise UIs. The framework ships as a single CSS bundle plus a tiny vanilla JS layer for dropdowns, modals, carousels, toasts, and scrollspy, so you can copy/paste it into any project without a build step.</p>
+      <p>Design pillars include predictable utilities, responsive layout primitives, and accessible defaults such as focus-visible outlines, reduced-motion handling, and WCAG-AA-friendly color tokens.</p>
+      <p>Documentation images rely on Placehold (600×400 mock assets) so you can preview layouts without external media; change the `/HEX/HEX?text=` params to match your own palette.</p>
+      <p>Drop FineCSS into a page with:</p>
+      <div class="docs-code">
+        <pre><code>&lt;link rel="stylesheet" href="/finecss/css/finecss.css"&gt;
+&lt;script src="/finecss/js/finecss.js"&gt;&lt;/script&gt;
+&lt;script&gt;FineCSS.init()&lt;/script&gt;</code></pre>
+      </div>
+    </section>
+
+    <section id="layout" class="docs-card">
+      <h2 class="fc-heading fc-heading--h3">Layout & Grid System</h2>
+      <p>Use <code>.fc-container</code> for fixed widths and <code>.fc-container--fluid</code> for full-width wrapped content. Rows/gutters rely on <code>.fc-row</code>, <code>.fc-col*</code>, and gutter utilities.</p>
+      <article>
+        <h3>Fixed Container</h3>
+        <div class="fc-row fc-g-3">
+          <div class="fc-col-6 docs-card">Left</div>
+          <div class="fc-col-6 docs-card">Right</div>
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;div class="fc-container"&gt;
+  &lt;div class="fc-row fc-g-3"&gt;
+    &lt;div class="fc-col-6"&gt;Left&lt;/div&gt;
+    &lt;div class="fc-col-6"&gt;Right&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Fluid Container & Responsive Columns</h3>
+        <div class="fc-container--fluid docs-card">
+          <div class="fc-row fc-g-4">
+            <div class="fc-col-sm-6 fc-col-md-4 docs-card">A</div>
+            <div class="fc-col-sm-6 fc-col-md-4 docs-card">B</div>
+            <div class="fc-col-sm-12 fc-col-md-4 docs-card">C</div>
+          </div>
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;div class="fc-container--fluid"&gt;
+  &lt;div class="fc-row fc-g-4"&gt;
+    &lt;div class="fc-col-sm-6 fc-col-md-4"&gt;A&lt;/div&gt;
+    &lt;div class="fc-col-sm-6 fc-col-md-4"&gt;B&lt;/div&gt;
+    &lt;div class="fc-col-sm-12 fc-col-md-4"&gt;C&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </article>
+    </section>
+
+    <section id="typography" class="docs-card">
+      <h2 class="fc-heading fc-heading--h3">Typography</h2>
+      <article>
+        <h3>Headings & Text</h3>
+        <p class="fc-lead">Lead paragraph demonstrating line-height and contrast.</p>
+        <p>Normal paragraph with <a href="#">accessible link</a>.</p>
+        <div class="docs-code">
+          <pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;p class="fc-lead"&gt;Lead text.&lt;/p&gt;
+&lt;p&gt;Regular text with &lt;a href="#"&gt;link&lt;/a&gt;.&lt;/p&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Inline Utilities</h3>
+        <p class="fc-text-muted">Muted text</p>
+        <p class="fc-text-truncate" style="max-width: 14rem;">This text will truncate when constrained inside a narrow layout.</p>
+        <p class="fc-fw-bold">Bold text helper</p>
+        <p class="fc-fw-light">Light font-weight helper</p>
+        <div class="docs-code">
+          <pre><code>&lt;p class="fc-text-muted"&gt;Muted&lt;/p&gt;
+&lt;p class="fc-text-truncate" style="max-width:14rem;"&gt;Truncated text&lt;/p&gt;
+&lt;p class="fc-fw-bold"&gt;Bold helper&lt;/p&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Alignment Utilities</h3>
+        <p class="fc-text-center">Centered text</p>
+        <p class="fc-text-end">Right-aligned text</p>
+        <div class="docs-code">
+          <pre><code>&lt;p class="fc-text-center"&gt;Center&lt;/p&gt;
+&lt;p class="fc-text-end"&gt;End&lt;/p&gt;</code></pre>
+        </div>
+      </article>
+    </section>
+
+    <section id="utilities" class="docs-card">
+      <h2 class="fc-heading fc-heading--h3">Colors & Utilities</h2>
+      <div class="docs-grid-demo">
+        <span class="fc-badge fc-badge--primary">Primary badge</span>
+        <span class="fc-badge fc-badge--success">Success badge</span>
+        <span class="fc-badge fc-badge--danger">Danger badge</span>
+      </div>
+      <article>
+        <h3>Spacing & Display</h3>
+        <div class="fc-row fc-g-3">
+          <div class="docs-card u-fc-p-3 u-fc-border">.u-fc-p-3</div>
+          <div class="docs-card u-fc-p-4 u-fc-border">.u-fc-p-4</div>
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;div class="u-fc-p-3 u-fc-border"&gt;...&lt;/div&gt;
+&lt;div class="u-fc-p-4 u-fc-border"&gt;...&lt;/div&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Flex & Visibility</h3>
+        <div class="docs-grid-demo">
+          <div class="u-fc-d-flex u-fc-gap-2">
+            <span>Flex item</span><span>Flex item</span>
+          </div>
+        </div>
+        <p class="fc-visually-hidden">Hidden screen-reader text</p>
+        <div class="docs-code">
+          <pre><code>&lt;div class="u-fc-d-flex u-fc-gap-2"&gt;...&lt;/div&gt;
+&lt;p class="fc-visually-hidden"&gt;...&lt;/p&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Focus Helper</h3>
+        <button class="fc-btn fc-focus-ring">Focusable button</button>
+        <div class="docs-code">
+          <pre><code>&lt;button class="fc-btn fc-focus-ring"&gt;Focusable button&lt;/button&gt;</code></pre>
+        </div>
+      </article>
+    </section>
+
+    <section id="tables" class="docs-card">
+      <h2 class="fc-heading fc-heading--h3">Tables & Images</h2>
+      <article>
+        <h3>Table Variants</h3>
+        <div class="docs-card">
+          <table class="fc-table">
+            <thead>
+              <tr><th>Header</th><th>Value</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Row</td><td>10</td></tr>
+              <tr><td>Row</td><td>20</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;table class="fc-table"&gt;...&lt;/table&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Striped & Responsive</h3>
+        <div class="docs-card">
+          <div class="fc-table--responsive">
+            <table class="fc-table fc-table--striped fc-table--hover">
+              <tbody>
+                <tr><td>Alpha</td><td>True</td></tr>
+                <tr><td>Beta</td><td>False</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;div class="fc-table--responsive"&gt;
+  &lt;table class="fc-table fc-table--striped fc-table--hover"&gt;...&lt;/table&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Images</h3>
+        <div class="fc-row fc-g-3">
+          <img class="fc-img fc-img--fluid fc-img--rounded" src="https://placehold.co/600x400/0f172a/ffffff?text=Rounded" alt="Rounded example">
+          <img class="fc-img fc-img--fluid fc-img--circle" src="https://placehold.co/600x400/2563eb/ffffff?text=Circle" alt="Circle example">
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;img class="fc-img fc-img--fluid fc-img--rounded" src="https://placehold.co/600x400/0f172a/ffffff?text=Rounded"&gt;
+&lt;img class="fc-img fc-img--fluid fc-img--circle" src="https://placehold.co/600x400/2563eb/ffffff?text=Circle"&gt;</code></pre>
+        </div>
+      </article>
+    </section>
+
+    <section class="docs-card">
+      <h2 class="fc-heading fc-heading--h3">Product gallery</h2>
+      <div class="fc-row fc-g-3">
+        <article class="fc-card">
+          <img class="fc-img fc-img--rounded" src="https://placehold.co/600x400/2563eb/ffffff?text=Notebook" alt="Notebook">
+          <h3 class="fc-card__header">Traveler Laptop</h3>
+          <p>Thin, fanless design with 16hrs battery.</p>
+          <p class="fc-lead">$1299</p>
+        </article>
+        <article class="fc-card fc-card--success">
+          <img class="fc-img fc-img--rounded" src="https://placehold.co/600x400/16a34a/ffffff?text=Camera" alt="Camera">
+          <h3 class="fc-card__header">Conference Cam</h3>
+          <p>1080p PTZ with auto-focus.</p>
+          <p class="fc-lead">$249</p>
+        </article>
+        <article class="fc-card fc-card--warning">
+          <img class="fc-img fc-img--rounded" src="https://placehold.co/600x400/f97316/ffffff?text=Ergo+Chair" alt="Ergo Chair">
+          <h3 class="fc-card__header">Ergo Chair</h3>
+          <p>Adjustable support with breathable mesh.</p>
+          <p class="fc-lead">$329</p>
+        </article>
+      </div>
+      <div class="docs-code">
+        <pre><code>&lt;article class="fc-card"&gt;
+  &lt;img class="fc-img fc-img--rounded" src="..." alt="..."&gt;
+  ...
+&lt;/article&gt;</code></pre>
+      </div>
+    </section>
+
+    <section id="components" class="docs-card">
+      <h2 class="fc-heading fc-heading--h3">Core Components (CSS)</h2>
+      <article>
+        <h3>Alerts</h3>
+        <p>Stateful alert banners with modifiers.</p>
+        <div class="fc-alert fc-alert--success">
+          <span>Success alert content.</span>
+          <button class="fc-alert__close" aria-label="Close alert">&times;</button>
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;div class="fc-alert fc-alert--success"&gt;
+  Success alert
+  &lt;button class="fc-alert__close" aria-label="Close alert"&gt;&times;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Badges</h3>
+        <span class="fc-badge fc-badge--primary">Primary status</span>
+        <div class="docs-code">
+          <pre><code>&lt;span class="fc-badge fc-badge--primary"&gt;Primary&lt;/span&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Breadcrumbs</h3>
+        <ol class="fc-breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Library</a></li>
+          <li>Data</li>
+        </ol>
+        <div class="docs-code">
+          <pre><code>&lt;ol class="fc-breadcrumb"&gt;...&lt;/ol&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Buttons</h3>
+        <div class="docs-grid-demo">
+          <button class="fc-btn fc-btn--primary">Primary</button>
+          <button class="fc-btn fc-btn--secondary">Secondary</button>
+          <button class="fc-btn fc-btn--success">Success</button>
+          <button class="fc-btn fc-btn--warning">Warning</button>
+          <button class="fc-btn fc-btn--danger">Danger</button>
+          <button class="fc-btn fc-btn--outline">Outline</button>
+          <button class="fc-btn fc-btn--primary fc-btn--sm">Small</button>
+          <button class="fc-btn fc-btn--primary fc-btn--lg">Large</button>
+          <button class="fc-btn is-disabled">Disabled</button>
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;button class="fc-btn fc-btn--primary"&gt;Primary&lt;/button&gt;
+&lt;button class="fc-btn fc-btn--secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="fc-btn fc-btn--outline"&gt;Outline&lt;/button&gt;
+&lt;button class="fc-btn fc-btn--primary fc-btn--sm"&gt;Small&lt;/button&gt;
+&lt;button class="fc-btn fc-btn--primary fc-btn--lg"&gt;Large&lt;/button&gt;
+&lt;button class="fc-btn is-disabled"&gt;Disabled&lt;/button&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Cards</h3>
+        <div class="fc-row fc-g-3">
+          <div class="fc-col fc-card fc-card--primary">
+            <div class="fc-card__header">Primary card</div>
+            <div class="fc-card__body">Primary background</div>
+          </div>
+          <div class="fc-col fc-card fc-card--success">
+            <div class="fc-card__header">Success card</div>
+            <div class="fc-card__body">Success background</div>
+          </div>
+          <div class="fc-col fc-card fc-card--warning">
+            <div class="fc-card__header">Warning card</div>
+            <div class="fc-card__body">Warning background</div>
+          </div>
+          <div class="fc-col fc-card fc-card--danger">
+            <div class="fc-card__header">Danger card</div>
+            <div class="fc-card__body">Danger background</div>
+          </div>
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;div class="fc-card fc-card--primary"&gt;...&lt;/div&gt;
+&lt;div class="fc-card fc-card--success"&gt;...&lt;/div&gt;
+&lt;div class="fc-card fc-card--warning"&gt;...&lt;/div&gt;
+&lt;div class="fc-card fc-card--danger"&gt;...&lt;/div&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Forms</h3>
+        <form class="fc-form-group">
+          <label class="fc-form-label">Text</label>
+          <input class="fc-form-control" type="text" placeholder="Plain text">
+          <label class="fc-form-label">Email</label>
+          <input class="fc-form-control fc-form-control--success" type="email" placeholder="success">
+          <label class="fc-form-label">Password</label>
+          <input class="fc-form-control fc-form-control--warning" type="password" placeholder="warning">
+          <label class="fc-form-label">Number</label>
+          <input class="fc-form-control fc-form-control--danger" type="number" placeholder="danger">
+          <div class="fc-input-group">
+            <span class="fc-input-group__prepend">https://</span>
+            <input type="text" placeholder="example.com">
+            <button class="fc-input-group__append fc-input-group__button" type="button">Go</button>
+          </div>
+          <label class="fc-form-label fc-switch">
+            <span>Toggle</span>
+            <input type="checkbox">
+            <span class="fc-switch__track">
+              <span class="fc-switch__thumb"></span>
+            </span>
+          </label>
+        </form>
+        <div class="docs-code">
+          <pre><code>&lt;input class="fc-form-control" type="text"&gt;
+&lt;input class="fc-form-control fc-form-control--success" type="email"&gt;
+&lt;input class="fc-form-control fc-form-control--warning" type="password"&gt;
+&lt;div class="fc-input-group"&gt;
+  &lt;span class="fc-input-group__prepend"&gt;https://&lt;/span&gt;
+  &lt;input type="text"&gt;
+  &lt;button class="fc-input-group__append fc-input-group__button"&gt;Go&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Jumbotron / Hero</h3>
+        <div class="fc-hero">
+          <div class="fc-hero__title">Hero title</div>
+          <p class="fc-hero__subtitle">Supporting text.</p>
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;div class="fc-hero"&gt;
+  &lt;div class="fc-hero__title"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>List Groups</h3>
+        <div class="fc-row fc-g-3">
+          <div class="fc-col">
+            <ul class="fc-list-group">
+              <li class="fc-list-group__item">Inbox</li>
+              <li class="fc-list-group__item is-active">Starred</li>
+              <li class="fc-list-group__item">Drafts</li>
+            </ul>
+          </div>
+          <div class="fc-col">
+            <ul class="fc-list-group fc-list-group--primary">
+              <li class="fc-list-group__item">Primary alert</li>
+              <li class="fc-list-group__item">Highlighted</li>
+            </ul>
+          </div>
+          <div class="fc-col">
+            <ul class="fc-list-group fc-list-group--success">
+              <li class="fc-list-group__item">Paid</li>
+              <li class="fc-list-group__item">Settled</li>
+            </ul>
+          </div>
+          <div class="fc-col">
+            <ul class="fc-list-group fc-list-group--warning">
+              <li class="fc-list-group__item">Pending</li>
+              <li class="fc-list-group__item">Review</li>
+            </ul>
+          </div>
+          <div class="fc-col">
+            <ul class="fc-list-group fc-list-group--info">
+              <li class="fc-list-group__item">Info</li>
+              <li class="fc-list-group__item">Notes</li>
+            </ul>
+          </div>
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;ul class="fc-list-group"&gt;
+  &lt;li class="fc-list-group__item"&gt;Item&lt;/li&gt;
+  &lt;li class="fc-list-group__item is-active"&gt;Active&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul class="fc-list-group fc-list-group--primary"&gt;...&lt;/ul&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Media Objects</h3>
+        <div class="fc-media">
+          <img class="fc-img fc-img--circle" src="https://placehold.co/120x120/0f172a/ffffff?text=AV" alt="Avatar">
+          <div class="fc-media__body">
+            <strong>Author</strong>
+            <p>Text snippet with extra detail to show how body content wraps around.</p>
+          </div>
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;div class="fc-media"&gt;
+  &lt;img class="fc-img fc-img--circle" src="https://placehold.co/120x120/0f172a/ffffff?text=AV" alt="Avatar"&gt;
+  &lt;div class="fc-media__body"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Navbars</h3>
+        <div class="fc-navbar">
+          <a class="fc-navbar__brand" href="#">FineCSS</a>
+          <div class="fc-navbar__nav">
+            <a class="fc-navbar__link" href="#">Docs</a>
+            <a class="fc-navbar__link" href="#">Components</a>
+          </div>
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;div class="fc-navbar"&gt;...&lt;/div&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Navbar variations</h3>
+        <div class="docs-grid-demo">
+          <div class="fc-navbar fc-navbar--primary">
+            <a class="fc-navbar__brand" href="#">FineCSS</a>
+            <div class="fc-navbar__nav">
+              <a class="fc-navbar__link" href="#">Home</a>
+              <a class="fc-navbar__link" href="#">Features</a>
+              <div data-fc="dropdown">
+                <button class="fc-btn fc-btn--outline fc-btn--sm" data-fc-toggle="dropdown" data-fc-target="#navbarDropdown">Menu</button>
+                <div id="navbarDropdown" data-fc-menu role="menu">
+                  <a href="#" role="menuitem">Action</a>
+                  <a href="#" role="menuitem">Another action</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="fc-navbar fc-navbar--dark">
+            <a class="fc-navbar__brand" href="#">FineCSS</a>
+            <div class="fc-navbar__nav">
+              <div class="fc-navbar__search">
+                <input placeholder="Search" type="text">
+              </div>
+              <a class="fc-navbar__link" href="#">Profile</a>
+            </div>
+          </div>
+          <div class="fc-navbar fc-navbar--light">
+            <a class="fc-navbar__brand" href="#">FineCSS Light</a>
+            <div class="fc-navbar__nav">
+              <a class="fc-navbar__link" href="#">Docs</a>
+              <div data-fc="dropdown">
+                <button class="fc-btn fc-btn--outline fc-btn--sm" data-fc-toggle="dropdown" data-fc-target="#lightDropdown">More</button>
+                <div id="lightDropdown" data-fc-menu role="menu">
+                  <a href="#" role="menuitem">Overview</a>
+                  <a href="#" role="menuitem">Changelog</a>
+                </div>
+              </div>
+              <button class="fc-btn fc-btn--primary">Call to action</button>
+            </div>
+          </div>
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;div class="fc-navbar fc-navbar--primary"&gt;
+  ...
+&lt;/div&gt;
+&lt;div class="fc-navbar fc-navbar--dark"&gt;
+  ...
+&lt;/div&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Pagination</h3>
+        <ul class="fc-pagination">
+          <li class="fc-pagination__item"><a class="fc-pagination__link" href="#">1</a></li>
+          <li class="fc-pagination__item"><a class="fc-pagination__link is-active" href="#">2</a></li>
+        </ul>
+        <div class="docs-code">
+          <pre><code>&lt;ul class="fc-pagination"&gt;...&lt;/ul&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Progress Bars</h3>
+        <div class="fc-row fc-g-3">
+          <div class="fc-col">
+            <div class="fc-progress">
+              <div class="fc-progress__bar" style="width:35%"></div>
+            </div>
+            <p>Default 35%</p>
+          </div>
+          <div class="fc-col">
+            <div class="fc-progress fc-progress--sm">
+              <div class="fc-progress__bar fc-progress__bar--success" style="width:60%"></div>
+            </div>
+            <p>Success 60%</p>
+          </div>
+          <div class="fc-col">
+            <div class="fc-progress fc-progress--lg">
+              <div class="fc-progress__bar fc-progress__bar--warning fc-progress__bar--striped fc-progress__bar--animated" style="width:80%"></div>
+            </div>
+            <p>Striped warning 80%</p>
+          </div>
+          <div class="fc-col">
+            <div class="fc-progress">
+              <div class="fc-progress__bar fc-progress__bar--danger" style="width:45%"></div>
+            </div>
+            <p>Danger 45%</p>
+          </div>
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;div class="fc-progress"&gt;
+  &lt;div class="fc-progress__bar" style="width:35%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="fc-progress fc-progress--sm"&gt;
+  &lt;div class="fc-progress__bar fc-progress__bar--success" style="width:60%"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Typography Components</h3>
+        <p class="fc-lead">Lead paragraph helper.</p>
+        <p class="fc-display-4">Display heading.</p>
+        <div class="docs-code">
+          <pre><code>&lt;p class="fc-lead"&gt;Lead&lt;/p&gt;
+&lt;p class="fc-display-4"&gt;Display&lt;/p&gt;</code></pre>
+        </div>
+      </article>
+    </section>
+
+    <section id="interactive" class="docs-card">
+      <h2 class="fc-heading fc-heading--h3">Interactive Components (JS)</h2>
+      <article>
+        <h3>Dropdown</h3>
+        <div class="fc-alert fc-alert--primary">
+          <button class="fc-btn" data-fc-toggle="dropdown">Toggle menu</button>
+          <div class="fc-card" data-fc-menu role="menu">
+            <a href="#" role="menuitem">Option 1</a>
+            <a href="#" role="menuitem">Option 2</a>
+          </div>
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;div data-fc="dropdown"&gt;
+  &lt;button class="fc-btn" data-fc-toggle="dropdown"&gt;Toggle menu&lt;/button&gt;
+  &lt;div data-fc-menu role="menu"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Modal</h3>
+        <button class="fc-btn" data-fc-toggle="modal" data-fc-target="#demoModal">Open modal</button>
+        <div id="demoModal" data-fc="modal" aria-hidden="true" tabindex="-1">
+          <div class="fc-modal__dialog" role="dialog" aria-modal="true">
+            <p>Accessible modal markup.</p>
+            <button data-fc-dismiss="modal" class="fc-btn">Close</button>
+          </div>
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;button data-fc-toggle="modal" data-fc-target="#demoModal"&gt;Open&lt;/button&gt;
+&lt;div data-fc="modal" id="demoModal"&gt;
+  &lt;div class="fc-modal__dialog" role="dialog" aria-modal="true"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Carousel</h3>
+        <div class="fc-card" data-fc="carousel" data-fc-interval="4000">
+          <div data-fc-slide>
+            <img class="fc-img fc-img--rounded" src="https://placehold.co/600x300/2563eb/ffffff?text=Slide+1" alt="Slide 1">
+            <p class="fc-fw-bold">Global Edge</p>
+            <p>Connect customers faster with edge POPs.</p>
+          </div>
+          <div data-fc-slide>
+            <img class="fc-img fc-img--rounded" src="https://placehold.co/600x300/16a34a/ffffff?text=Slide+2" alt="Slide 2">
+            <p class="fc-fw-bold">Secure Pods</p>
+            <p>Every workload is isolated inside hardened pods.</p>
+          </div>
+          <div data-fc-slide>
+            <img class="fc-img fc-img--rounded" src="https://placehold.co/600x300/f97316/ffffff?text=Slide+3" alt="Slide 3">
+            <p class="fc-fw-bold">Managed Tools</p>
+            <p>Console, alerts, and billing all in one view.</p>
+          </div>
+          <div class="fc-carousel-indicators">
+            <span class="fc-carousel-indicator"></span>
+            <span class="fc-carousel-indicator"></span>
+            <span class="fc-carousel-indicator"></span>
+          </div>
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;div data-fc="carousel" data-fc-interval="4000"&gt;
+  &lt;div data-fc-slide&gt;
+    &lt;img class="fc-img" src="..." alt="..."&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Toast</h3>
+        <button class="fc-btn" data-fc-toggle="toast" data-fc-target="#demoToast">Show toast</button>
+        <div id="demoToast" class="fc-card" data-fc="toast" data-fc-delay="3000">
+          Toast message
+          <button data-fc-dismiss="toast" class="fc-btn">Close</button>
+        </div>
+        <div class="docs-code">
+          <pre><code>&lt;button data-fc-toggle="toast" data-fc-target="#demoToast"&gt;Show toast&lt;/button&gt;
+&lt;div id="demoToast" data-fc="toast"&gt;...&lt;/div&gt;</code></pre>
+        </div>
+      </article>
+      <article>
+        <h3>Scrollspy</h3>
+        <nav data-fc="scrollspy" data-fc-offset="20">
+          <a href="#section1">Section 1</a>
+          <a href="#section2">Section 2</a>
+        </nav>
+        <div style="height:200px" id="section1">Section 1</div>
+        <div style="height:200px" id="section2">Section 2</div>
+        <div class="docs-code">
+          <pre><code>&lt;nav data-fc="scrollspy" data-fc-offset="20"&gt;...&lt;/nav&gt;</code></pre>
+        </div>
+      </article>
+    </section>
+
+    <section id="accessibility" class="docs-card">
+      <h2 class="fc-heading fc-heading--h3">Accessibility Guide</h2>
+      <p>Keyboard navigation: dropdowns respect Enter/Space, modals trap focus, ESC closes interactive overlays, scrollspy updates aria-current.</p>
+      <p>Focus styles use <code>:focus-visible</code> with strong outlines and <code>.fc-focus-ring</code> for components.</p>
+      <p>ARIA usage applied on menus, modals, toasts, and carousel slides.</p>
+      <p>Reduced motion support via <code>@media (prefers-reduced-motion: reduce)</code>.</p>
+      <p>Color contrast targets WCAG AA between text and surface tokens.</p>
+    </section>
+
+    <section id="reference" class="docs-card">
+      <h2 class="fc-heading fc-heading--h3">Utilities Reference</h2>
+      <table class="fc-table">
+        <thead>
+          <tr><th>Category</th><th>Class Pattern</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Spacing</td><td><code>.u-fc-m-*</code></td><td><code>.u-fc-m-3</code></td></tr>
+          <tr><td>Display</td><td><code>.u-fc-d-flex</code></td><td><code>.u-fc-d-none</code></td></tr>
+          <tr><td>Flex</td><td><code>.u-fc-flex-grow-1</code></td><td><code>.u-fc-flex-center</code></td></tr>
+          <tr><td>Gap</td><td><code>.u-fc-gap-*</code></td><td><code>.u-fc-gap-4</code></td></tr>
+          <tr><td>Borders</td><td><code>.u-fc-border</code></td><td><code>.u-fc-border-0</code></td></tr>
+          <tr><td>Radius</td><td><code>.u-fc-radius-*</code></td><td><code>.u-fc-radius-lg</code></td></tr>
+          <tr><td>Shadow</td><td><code>.u-fc-shadow-*</code></td><td><code>.u-fc-shadow-md</code></td></tr>
+          <tr><td>Position</td><td><code>.u-fc-pos-relative</code></td><td><code>.u-fc-top-0</code></td></tr>
+          <tr><td>Overflow</td><td><code>.u-fc-overflow-*</code></td><td><code>.u-fc-overflow-auto</code></td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="fc-card fc-container">
+    <p>FineCSS version 0.1 | Designed for accessibility and enterprise scale.</p>
+    <p>Philosophy: predictable, responsive, accessible components with zero dependencies.</p>
+  </footer>
+
+  <script src="/finecss/js/finecss.js"></script>
+  <script>FineCSS.init();</script>
+</body>
+</html>
