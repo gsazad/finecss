@@ -38,9 +38,15 @@ FineCSS is a very lightweight, component-based CSS framework designed to help te
 <script>FineCSS.init()</script>
 ```
 
-**Option B: Static hosting / GitHub Pages**
+**Option B: Versioned CDN (GitHub Pages or other static host)**
 
-Host the repository directly (e.g., via GitHub Pages) and reference the CSS/JS files with absolute paths. Point your pages to `/finecss/css/finecss.css` and `/finecss/js/finecss.js`, then call `FineCSS.init()` after the script loads.
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gsazad/finecss@v0.1.0/finecss/css/finecss.css">
+<script src="https://cdn.jsdelivr.net/gh/gsazad/finecss@v0.1.0/finecss/js/finecss.js"></script>
+<script>FineCSS.init()</script>
+```
+
+Update the version (`v0.1.0`) as new releases are published so the CDN paths remain stable.
 
 ## Documentation
 
