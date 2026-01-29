@@ -725,6 +725,34 @@ blockquote {
   font-weight: 300 !important;
 }
 
+.fc-text-color-light {
+  color: rgba(15, 23, 42, 0.5);
+}
+
+.fc-text-color-dark {
+  color: var(--fc-color-text);
+}
+
+.fc-text-color-primary {
+  color: var(--fc-color-primary);
+}
+
+.fc-text-color-success {
+  color: var(--fc-color-success);
+}
+
+.fc-text-color-warning {
+  color: var(--fc-color-warning);
+}
+
+.fc-text-color-danger {
+  color: var(--fc-color-danger);
+}
+
+.fc-text-color-info {
+  color: var(--fc-color-info);
+}
+
 /* Tables & Images */
 .fc-table {
   width: 100%;
@@ -1314,6 +1342,67 @@ blockquote {
   font-weight: 600;
 }
 
+[data-fc="accordion"] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--fc-color-border);
+  border-radius: var(--fc-radius-lg);
+}
+
+[data-fc="accordion"] .fc-accordion-item {
+  border-bottom: 1px solid var(--fc-color-border);
+  background: var(--fc-color-panel);
+}
+
+[data-fc="accordion"] .fc-accordion-item:last-child {
+  border-bottom: 0;
+}
+
+.fc-accordion-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--fc-space-3) var(--fc-space-4);
+  font-weight: 600;
+  color: var(--fc-color-text);
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.fc-accordion-title:focus-visible {
+  outline: 2px solid var(--fc-color-primary);
+  outline-offset: 2px;
+}
+
+.fc-accordion-icon {
+  display: inline-flex;
+  transition: transform 0.2s ease;
+}
+
+.fc-accordion-item.is-open .fc-accordion-icon {
+  transform: rotate(180deg);
+}
+
+.fc-accordion-content {
+  overflow: hidden;
+  height: 0;
+  padding: 0 var(--fc-space-4);
+  transition: height 0.2s ease;
+}
+
+.fc-accordion-content > * {
+  margin: var(--fc-space-3) 0;
+}
+
+.fc-accordion-item.is-open .fc-accordion-content {
+  padding-top: var(--fc-space-2);
+  padding-bottom: var(--fc-space-3);
+}
 [data-fc="carousel"] {
   position: relative;
   overflow: hidden;
@@ -1718,6 +1807,39 @@ blockquote {
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.1;
+}
+
+/* Background utilities */
+.fc-background-none {
+  background: transparent !important;
+}
+
+.fc-background-primary {
+  background-color: var(--fc-color-primary);
+}
+
+.fc-background-primary-inverse {
+  color: #fff;
+}
+
+.fc-background-success {
+  background-color: var(--fc-color-success);
+}
+
+.fc-background-warning {
+  background-color: var(--fc-color-warning);
+}
+
+.fc-background-danger {
+  background-color: var(--fc-color-danger);
+}
+
+.fc-background-info {
+  background-color: var(--fc-color-info);
+}
+
+.fc-background-panel {
+  background-color: var(--fc-color-panel);
 }
 
 /* Dropdown & modal helpers */
